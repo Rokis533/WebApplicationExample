@@ -1,0 +1,11 @@
+﻿@model string
+
+<form asp-controller="Info" asp-action="Edit">
+
+    <input name="id" value="@ViewBag.id" hidden />
+    <div class="form-group">
+        <label for="name-input">Name</label>
+        <input type="text" class="form-control" name="name" id="name-input" value="@Model" placeholder="Enter Name">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>

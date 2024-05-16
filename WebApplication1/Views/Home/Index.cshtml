@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .my-btn{
+        color: white;
+        background-color: green;
+        font-weight: bold;
+    }
+</style>
+
+<div class="text-center">
+
+    <img src="/Images/download.png" />
+
+    @for (int i = 0; i < 5; i++)
+    {
+        <h1 id="welcome-@i" class="display-4 welcome my-btn">Welcome @i</h1>
+    }
+    <button id="btn-click" type="button" class="btn btn-primary my-btn">Click me</button>
+
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@section Scripts{
+    <script>
+        var counter = 0;
+        $("#btn-click").click(function () {
+            $.ajax({
+                url: "/Home/GetData",
+                type: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    $("#welcome-0").html(res.data);
+                }
+            });
+            
+        });
+
+    </script>
+}

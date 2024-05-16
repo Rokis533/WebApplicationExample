@@ -1,0 +1,31 @@
+﻿@model List<string>
+
+<h1>Info Controller</h1>
+
+<a class="btn btn-primary" asp-controller="Info" asp-action="Create">Create</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int counter = 0;
+        }
+        @foreach (string name in Model)
+        {
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@name</td>
+                <td>
+                    <a class="btn btn-secondary" asp-controller="Info" asp-action="Edit" asp-route-id="@counter">Edit</a>
+                </td>
+            </tr>
+            { counter++; }
+        }
+    </tbody>
+</table>
